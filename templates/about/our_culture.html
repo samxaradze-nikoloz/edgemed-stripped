@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Edge Medical Georgia — ჩვენს შესახებ</title>
+
+  <link rel="stylesheet" href="../../static/css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    .about-edge {
+      padding: 80px 0;
+      background: #0b0f1a;
+      color: #e8edf5;
+    }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 50px;
+      align-items: start;
+    }
+
+    .about-text h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #00aaff;
+    }
+
+    .about-text h3 {
+      margin-top: 25px;
+      font-size: 22px;
+      color: #4dc8ff;
+    }
+
+    .about-text p {
+      margin-bottom: 15px;
+      line-height: 1.7;
+      color: #cfd8e3;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    @media (max-width: 768px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-image img {
+        height: 260px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="topbar-tagline">Minimally Invasive Surgical Solutions</span>
+    <div class="topbar-right"></div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+
+    <a href="index.html" class="nav-logo">
+      <img src="../../media/Images/logo.png" alt="Edge Medical" class="logo-img">
+    </a>
+
+    <button class="nav-hamburger" id="hamburgerBtn" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="nav-links" id="navLinks">
+
+      <li class="nav-item has-dropdown">
+        <a href="../about/about_edge.html" class="nav-link">
+          ჩვენს შესახებ
+          <svg class="chevron" viewBox="0 0 10 6" width="12" height="8" aria-hidden="true">
+            <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          </svg>
+        </a>
+        <ul class="dropdown">
+          <li><a href="../about/about_edge.html">Edge ის შესახებ</a></li>
+          <li><a href="../about/our_culture.html">ჩვენი კულტურა</a></li>
+          <li><a href="../about/reward_and_qualification.html">ჯილდოები</a></li>
+        </ul>
+      </li>
+
+      <li class="nav-item has-dropdown">
+        <a href="../products/multi_port_robot.html" class="nav-link">
+          პროდუქტი
+          <svg class="chevron" viewBox="0 0 10 6" width="12" height="8" aria-hidden="true">
+            <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          </svg>
+        </a>
+        <ul class="dropdown">
+          <li><a href="../products/multi_port_robot.html">მრავალპორტიანი ქირურგიული რობოტი</a></li>
+          <li><a href="../products/single_port_robot.html">ერთპორტიანი ქირურგიული რობოტი</a></li>
+          <li><a href="../products/bronchoscopic_robot.html">ბრონქოსკოპიური რობოტი</a></li>
+          <li><a href="../products/cloud_telesurgery.html">ღრუბლოვანი ტელექირურგია</a></li>
+        </ul>
+      </li>
+
+      <li class="nav-item has-dropdown">
+        <a href="../contact/contacts.html" class="nav-link">
+          დაგვიკავშირდით
+          <svg class="chevron" viewBox="0 0 10 6" width="12" height="8" aria-hidden="true">
+            <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          </svg>
+        </a>
+        <ul class="dropdown">
+          <li><a href="tel:4008609000">Num : 400-860-9000</a></li>
+          <li><a href="mailto:contact@edgemed.cn">Gmail: contact@edgemed.cn</a></li>
+        </ul>
+      </li>
+
+      <li class="nav-item nav-icon-item">
+        <button class="nav-icon-btn" aria-label="Search" id="searchBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </button>
+      </li>
+
+    </ul>
+  </div>
+
+  <div class="search-bar" id="searchBar" hidden>
+    <div class="search-inner">
+      <input type="text" placeholder="Search Edge Medical..." class="search-input" id="searchInput">
+      <button class="search-close" id="searchClose" aria-label="Close search">✕</button>
+    </div>
+  </div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main class="main-content">
+
+  <section class="about-edge">
+    <div class="section-inner">
+      <div class="about-grid">
+
+        <!-- TEXT CONTENT -->
+        <div class="about-text">
+
+          <h2>Edge Medical</h2>
+
+          <p>
+            შტაბ-ბინით შენჟენში, ჩინეთი, Edge Medical წარმოადგენს ქირურგიული რობოტიკის ინოვაციების გამოცდილ ლიდერს.
+            წამყვანი ინვესტორების — HongShan, Temasek Holdings და OrbiMed — მხარდაჭერით, კომპანია ხელმძღვანელობს მისიით
+            „ქირურგიის განვითარება, სამედიცინო ხარისხის გაუმჯობესება" და აწვდის მაღალი ხარისხის რობოტულ გადაწყვეტილებებს მთელ მსოფლიოში.
+          </p>
+
+          <p>
+            Edge Medical® ფლობს მულტიდისციპლინურ R&amp;D და წარმოების გუნდს, რომელსაც გააჩნია 10 წელზე მეტი ტექნოლოგიური გამოცდილება და განვითარება.
+            ჩვენი ქირურგიული რობოტული სისტემები ინდუსტრიის სტანდარტებს განსაზღვრავს და მოიცავს მრავალპორტიან, ერთპორტიან და ბრონქოსკოპიულ პლატფორმებს,
+            რომლებიც უკვე კომერციულად ხელმისაწვდომია.
+          </p>
+
+          <p>
+            2024 წელს განხორციელდა ისტორიული ტრანსკონტინენტური ტელექირურგიული ოპერაცია რომიდან, ბორდოდან და პეკინიდან,
+            რაც გახდა მნიშვნელოვანი ეტაპი ქირურგიის ისტორიაში.
+          </p>
+
+          <p>
+            კომპანია წარმოდგენილია 25-ზე მეტ ქვეყანაში და მიზნად ისახავს ქირურგიული პრაქტიკის განვითარებას ტექნოლოგიური ინოვაციების გზით
+            და პაციენტების შედეგების გაუმჯობესებას გლობალურად.
+          </p>
+
+          <p>
+            Edge Medical არის ერთ-ერთი იშვიათი ჩინური კომპანია, რომელიც ერთდროულად სთავაზობს მრავალპორტიან, ერთპორტიან და ბრონქოსკოპიულ
+            ქირურგიულ რობოტულ სისტემებს.
+          </p>
+
+          <h3>კვლევისა და განვითარების ძალა</h3>
+
+          <p>
+            ძლიერი R&amp;D შესაძლებლობები — 700-ზე მეტი გლობალური პატენტის განაცხადით და სრული ინტელექტუალური საკუთრების სისტემით ქირურგიული რობოტიკის სფეროში.
+          </p>
+
+          <h3>გლობალური ინვესტორების მხარდაჭერა</h3>
+
+          <p>
+            360 მილიონი RMB რეგისტრირებული კაპიტალით, კომპანია მხარდაჭერილია წამყვანი ინვესტორების მიერ, მათ შორის Boyu, Temasek, HongShan,
+            3H Health, LYFE Capital, China SOE Reform Fund და OrbiMed. 2021 წლის დეკემბერში კომპანიის შეფასება აღემატებოდა 1.5 მილიარდ აშშ დოლარს.
+          </p>
+
+        </div>
+
+        <!-- IMAGE -->
+        <div class="about-image">
+          <img src="../../media/Images/chinetipi.png" alt="Edge Medical-ის ობიექტი">
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-main">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html">
+          <img src="../../media/Images/logo.png" alt="Edge Medical" class="footer-logo-img">
+        </a>
+        <p class="footer-tagline">Advancing Surgery · Elevating Care</p>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Contact</h4>
+        <ul class="footer-list">
+          <li>Room 01, Shenzhen, PRC</li>
+          <li>400-860-9000</li>
+          <li><a href="mailto:contact@edgemed.cn">contact@edgemed.cn</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <span>© 2025 Edge Medical®. All rights reserved.</span>
+      <span class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <span class="footer-divider">|</span>
+        <a href="#">Legal Disclaimer</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="../../static/js/main.js"></script>
+
+</body>
+</html>

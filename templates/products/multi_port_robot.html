@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edge მრავალპორტიანი ენდოსკოპიური ქირურგიული რობოტი</title>
+  <link rel="stylesheet" href="../../static/css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="topbar-tagline">Minimally Invasive Surgical Solutions</span>
+    <div class="topbar-right"></div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+
+    <a href="../homepage/index.html" class="nav-logo">
+      <img src="../../media/Images/logo.png" alt="Edge Medical" class="logo-img">
+    </a>
+
+    <button class="nav-hamburger" id="hamburgerBtn" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="nav-links" id="navLinks">
+
+      <li class="nav-item has-dropdown">
+        <a href="../about/about_edge.html" class="nav-link">
+          ჩვენს შესახებ
+          <svg class="chevron" viewBox="0 0 10 6" width="12" height="8" aria-hidden="true">
+            <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          </svg>
+        </a>
+        <ul class="dropdown">
+          <li><a href="../about/about_edge.html">Edge ის შესახებ</a></li>
+          <li><a href="../about/our_culture.html">ჩვენი კულტურა</a></li>
+          <li><a href="../about/reward_and_qualification.html">ჯილდოები</a></li>
+        </ul>
+      </li>
+
+      <li class="nav-item has-dropdown">
+        <a href="multi_port_robot.html" class="nav-link">
+          პროდუქტი
+          <svg class="chevron" viewBox="0 0 10 6" width="12" height="8" aria-hidden="true">
+            <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          </svg>
+        </a>
+        <ul class="dropdown">
+          <li><a href="multi_port_robot.html">მრავალპორტიანი ქირურგიული რობოტი</a></li>
+          <li><a href="single_port_robot.html">ერთპორტიანი ქირურგიული რობოტი</a></li>
+          <li><a href="bronchoscopic_robot.html">ბრონქოსკოპიური რობოტი</a></li>
+            <li><a href="cloud_telesurgery.html">ღრუბლოვანი ტელექირურგია</a></li>
+        </ul>
+      </li>
+
+      <li class="nav-item has-dropdown">
+        <a href="../contact/contacts.html" class="nav-link">
+          დაგვიკავშირდით
+          <svg class="chevron" viewBox="0 0 10 6" width="12" height="8" aria-hidden="true">
+            <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          </svg>
+        </a>
+        <ul class="dropdown">
+          <li><a href="tel:4008609000">Num: 400-860-9000</a></li>
+          <li><a href="mailto:contact@edgemed.cn">Gmail: contact@edgemed.cn</a></li>
+        </ul>
+      </li>
+
+      <li class="nav-item nav-icon-item">
+        <button class="nav-icon-btn" aria-label="Search" id="searchBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </button>
+      </li>
+
+    </ul>
+  </div>
+
+  <div class="search-bar" id="searchBar" hidden>
+    <div class="search-inner">
+      <input type="text" placeholder="Search Edge Medical..." class="search-input" id="searchInput">
+      <button class="search-close" id="searchClose" aria-label="Close search">✕</button>
+    </div>
+  </div>
+</nav>
+
+<!-- CONTENT -->
+<main class="main-content">
+
+  <section class="product-strip">
+    <div class="strip-inner">
+      <a href="multi_port_robot.html" class="strip-item active">
+        <img src="../../media/Images/multi_port_endoschopic.png" alt="მრავალპორტიანი">
+        <span>მრავალპორტიანი</span>
+      </a>
+      <a href="single_port_robot.html" class="strip-item">
+        <img src="../../media/Images/single_port_endoschopic.png" alt="ერთპორტიანი">
+        <span>ერთპორტიანი</span>
+      </a>
+      <a href="cloud_telesurgery.html" class="strip-item">
+        <img src="../../media/Images/cloud_telesurgery.png" alt="ღრუბლოვანი">
+        <span>ღრუბლოვანი</span>
+      </a>
+      <a href="bronchoscopic_robot.html" class="strip-item">
+        <img src="../../media/Images/bronchoscopic.png" alt="ბრონქოსკოპიული">
+        <span>ბრონქოსკოპიული</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="product-hero">
+    <div class="section-inner">
+      <div class="hero-box">
+        <div class="hero-text">
+          <span class="badge">CE სერტიფიცირებული პროდუქტი</span>
+          <h1>Edge მრავალპორტიანი ენდოსკოპიური ქირურგიული რობოტი</h1>
+          <p>
+            ჩვენმა რობოტულმა სისტემამ 2022 წლის დეკემბერში ოთხი განყოფილებისთვის მიიღო NMPA-ს დამტკიცება, ხოლო 2025 წლის იანვარში — ევროკავშირის CE სერტიფიკატი, რაც უზრუნველყოფს მის გლობალურ კლინიკურ გამოყენებას.
+          </p>
+        </div>
+        <div class="hero-image">
+          <img src="../../media/Images/multiportimage.jpg" alt="მრავალპორტიანი რობოტი">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="product-summary">
+    <div class="section-inner">
+      <h2>კლინიკური მიმართულება</h2>
+      <p>
+        Edge მრავალპორტიანი ენდოსკოპიური ქირურგიული რობოტი შექმნილია მაღალი სიზუსტის მინიმალურად ინვაზიური ქირურგიისთვის სხვადასხვა სპეციალობაში, მათ შორის უროლოგიაში, გინეკოლოგიაში, თორაკალურ და ზოგან ქირურგიაში.
+      </p>
+      <p>
+        სისტემა აერთიანებს რობოტულ სიზუსტეს, მოწინავე ვიზუალიზაციას და ქირურგის ერგონომიულ კონტროლს, რათა გააუმჯობესოს ოპერაციული შედეგები და შეამციროს პაციენტის რეაბილიტაციის დრო.
+      </p>
+    </div>
+  </section>
+
+  <section class="feature-section">
+    <div class="section-inner">
+      <h2>შესაძლებლობები</h2>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h3>დამტკიცებული სისტემა</h3>
+          <p>ვალიდირებულია 12,000+ ქირურგიულ შემთხვევაში, მათ შორის IV ხარისხის კომპლექსურ ოპერაციებში.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Ultra-HD გამოსახულება</h3>
+          <p>რეალისტური ფერების რეპროდუქცია და გაუმჯობესებული სიღრმის აღქმა ქირურგებისთვის.</p>
+        </div>
+        <div class="feature-card">
+          <h3>დაბალი ლატენტობა</h3>
+          <p>რეალურ დროში მასტერ-სლეივის სინქრონიზაცია ზუსტი და სტაბილური მოძრაობებისთვის.</p>
+        </div>
+        <div class="feature-card">
+          <h3>გლობალური მხარდაჭერა</h3>
+          <p>მხარს უჭერს 5G, ოპტიკურ ბოჭკოვან და სპეციალიზებულ ქირურგიულ ქსელებს.</p>
+        </div>
+        <div class="feature-card">
+          <h3>ერგონომიული კონსოლი</h3>
+          <p>უზრუნველყოფს კომფორტს ხანგრძლივი და რთული ოპერაციების დროს.</p>
+        </div>
+        <div class="feature-card">
+          <h3>პლატფორმის თავსებადობა</h3>
+          <p>სრულად თავსებადია ერთპორტიან სისტემასთან მოქნილი ქირურგიული სამუშაო პროცესებისთვის.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="instrument-section">
+    <div class="section-inner">
+      <h2>ქირურგიული ინსტრუმენტები</h2>
+
+      <div class="instrument-row">
+        <div class="instrument-carousel">
+          <div class="carousel" id="c1">
+            <img src="../../media/Images/multiportistrument1.png" class="active" alt="რობოტული ინსტრუმენტი 1">
+            <img src="../../media/Images/multiportistrument.png" alt="რობოტული ინსტრუმენტი 2">
+          </div>
+        </div>
+        <div class="instrument-info">
+          <h3>Edge® მრავალპორტიანი რობოტული ინსტრუმენტები</h3>
+          <p>
+            30-ზე მეტი სპეციალიზებული ინსტრუმენტი — ნაკერების სისტემები, ბიპოლარული და მონოპოლარული ხელსაწყოები, გრასპერები და კლიპ-აპლიკატორები — შექმნილია სხვადასხვა კლინიკური საჭიროებისთვის.
+          </p>
+        </div>
+      </div>
+
+      <div class="instrument-row reverse">
+        <div class="instrument-info">
+          <h3>Edge® რობოტული ულტრაბგერითი სკალპელი</h3>
+          <p>
+            Edge® რობოტული ულტრაბგერითი სკალპელი აღჭურვილია მოქნილი მბრუნავი მაჯის სახსრით და სრულად ინტეგრირდება მრავალპორტიან სისტემასთან. იგი უზრუნველყოფს ზუსტ რეზექციას, გადაჭრას, დაჭერას და კოაგულაციას მინიმალური სისხლდენითა და ქსოვილის დაზიანებით.
+          </p>
+        </div>
+        <div class="instrument-carousel">
+          <div class="carousel" id="c2">
+            <img src="../../media/Images/scalpel2.png" class="active" alt="ულტრაბგერითი სკალპელი 1">
+            <img src="../../media/Images/scalpel1.png" alt="ულტრაბგერითი სკალპელი 2">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="related-section">
+    <div class="section-inner">
+      <h2>დაკავშირებული პროდუქტები</h2>
+      <div class="related-grid">
+        <div class="related-card">
+          <h3>მრავალპორტიანი ინსტრუმენტები</h3>
+          <p>30-ზე მეტი სპეციალიზებული ქირურგიული ინსტრუმენტი რობოტული ოპერაციებისთვის.</p>
+        </div>
+        <div class="related-card">
+          <h3>რობოტული ულტრაბგერითი სკალპელი</h3>
+          <p>მბრუნავი მაჯის ზუსტი ინსტრუმენტი ქსოვილების კონტროლირებული დამუშავებისთვის.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="section-inner">
+      <h2>მზად ხართ კლინიკური ტრანსფორმაციისთვის?</h2>
+      <p>
+        დაუკავშირდით Edge Medical-ს და დანერგეთ მოწინავე რობოტული ქირურგიული სისტემები თქვენს კლინიკაში.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-main">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="../homepage/index.html">
+          <img src="../../media/Images/logo.png" alt="Edge Medical" class="footer-logo-img">
+        </a>
+        <p class="footer-tagline">Advancing Surgery · Elevating Care</p>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Contact</h4>
+        <ul class="footer-list">
+          <li>Room 01, Shenzhen, PRC</li>
+          <li>400-860-9000</li>
+          <li><a href="mailto:contact@edgemed.cn">contact@edgemed.cn</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <span>© 2025 Edge Medical®. All rights reserved.</span>
+      <span class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <span class="footer-divider">|</span>
+        <a href="#">Legal Disclaimer</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="../../static/js/main.js"></script>
+
+</body>
+</html>
+
+<script>
+
+function carousel(id, speed=2500){
+    const el = document.getElementById(id);
+    const imgs = el.querySelectorAll("img");
+    let i = 0;
+
+    setInterval(()=>{
+        imgs[i].classList.remove("active");
+        i = (i + 1) % imgs.length;
+        imgs[i].classList.add("active");
+    }, speed);
+}
+
+document.addEventListener("DOMContentLoaded", ()=>{
+    carousel("c1");
+    carousel("c2");
+});
+
+</script>
+
+<style>
+
+.product-strip{
+    padding:15px 0;
+    background:#fff;
+    border-bottom:1px solid #eee;
+}
+
+.strip-inner{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.strip-item{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    width:85px;
+    text-decoration:none;
+    color:#000;
+}
+
+.strip-item img{
+    width:65px;
+    height:50px;
+    object-fit:cover;
+    border-radius:8px;
+}
+
+.strip-item span{
+    font-size:11px;
+    margin-top:5px;
+}
+
+.strip-item.active img{
+    border:2px solid #007bff;
+}
+
+.product-hero{
+    padding:60px 0;
+}
+
+.hero-box{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:40px;
+}
+
+.hero-text h1{
+    font-size:36px;
+    margin:10px 0;
+}
+
+.hero-image img{
+    width:320px;
+    border-radius:12px;
+}
+
+.product-summary{
+    padding:50px 0;
+}
+
+.feature-section{
+    padding:60px 0;
+}
+
+.feature-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.feature-card{
+    padding:20px;
+    background:#f9f9f9;
+    border-radius:10px;
+}
+
+.instrument-section{
+    padding:60px 0;
+}
+
+.instrument-row{
+    display:flex;
+    gap:40px;
+    align-items:center;
+    margin-bottom:50px;
+}
+
+.instrument-row.reverse{
+    flex-direction:row-reverse;
+}
+
+.carousel{
+    width:180px;
+    height:140px;
+    overflow:hidden;
+    border-radius:12px;
+    position:relative;
+}
+
+.carousel img{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+
+    opacity:0;
+    transition:opacity 0.8s ease-in-out;
+}
+
+.carousel img.active{
+    opacity:1;
+}
+
+.related-section{
+    padding:60px 0;
+}
+
+.related-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.related-card{
+    padding:20px;
+    background:#f5f5f5;
+    border-radius:10px;
+}
+
+.cta-section{
+    padding:60px 0;
+    text-align:center;
+}
+
+.cta-btn{
+    display:inline-block;
+    padding:12px 22px;
+    background:#000;
+    color:#fff;
+    border-radius:8px;
+    margin-top:10px;
+}
+
+@media(max-width:768px){
+
+.hero-box{
+    flex-direction:column;
+    text-align:center;
+}
+
+.feature-grid,
+.related-grid{
+    grid-template-columns:1fr;
+}
+
+.instrument-row,
+.instrument-row.reverse{
+    flex-direction:column;
+    text-align:center;
+}
+
+.hero-image img{
+    width:220px;
+}
+
+.carousel{
+    width:150px;
+    height:120px;
+}
+
+.carousel img{
+    width:150px;
+    height:120px;
+}
+
+}
+
+</style>
+

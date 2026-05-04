@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edge Medical — შესახებ</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- External CSS (Make sure this path is correct!) -->
+    <link rel="stylesheet" href="../../static/css/main.css">
+
+    <style>
+        /* PASTE ALL THE CSS FROM YOUR <style> BLOCK HERE */
+        :root {
+    --dark: #080c14;
+    --darker: #040710;
+    --blue-glow: #00aaff;
+    --blue-mid: #0077cc;
+    --blue-light: #4dc8ff;
+    --blue-pale: rgba(0,170,255,0.08);
+    --text: #e8edf5;
+    --text-muted: #7a8ba0;
+    --gold: #c8a96e;
+    --border: rgba(0,170,255,0.15);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--dark);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--darker);
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 110%, rgba(0,120,220,0.25) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 80% 20%, rgba(0,170,255,0.08) 0%, transparent 60%);
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,170,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,170,255,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 80%);
+  }
+
+  .hero-arc {
+    position: absolute;
+    bottom: -2px;
+    left: 0; right: 0;
+    height: 120px;
+    background: var(--dark);
+    clip-path: ellipse(60% 100% at 50% 100%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 24px;
+    max-width: 860px;
+  }
+
+  .eyebrow {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--blue-glow);
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.2s forwards;
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 8vw, 100px);
+    font-weight: 300;
+    line-height: 1.0;
+    color: #fff;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.4s forwards;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--blue-glow);
+  }
+
+  .hero-sub {
+    margin-top: 32px;
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--text-muted);
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.6s forwards;
+  }
+
+  .hero-line {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, transparent, var(--blue-glow), transparent);
+    margin: 48px auto 0;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.8s forwards;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── SECTION BASE ── */
+  section { padding: 100px 24px; }
+
+  .container { max-width: 1100px; margin: 0 auto; }
+
+  .section-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--blue-glow);
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5vw, 60px);
+    font-weight: 300;
+    line-height: 1.1;
+    color: #fff;
+    margin-bottom: 40px;
+  }
+
+  /* ── INTRO / ABOUT ── */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; gap: 48px; } }
+
+  .about-text p {
+    font-size: 16px;
+    line-height: 1.9;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+  }
+
+  .about-text p strong { color: var(--text); }
+
+  .about-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .stat-card {
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--blue-glow);
+    padding: 28px 32px;
+    background: var(--blue-pale);
+    backdrop-filter: blur(8px);
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+
+  .stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, var(--blue-glow), transparent);
+  }
+
+  .stat-card:hover { border-color: var(--blue-glow); }
+
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 56px;
+    font-weight: 300;
+    color: #fff;
+    line-height: 1;
+  }
+
+  .stat-num span { color: var(--blue-glow); font-size: 32px; }
+
+  .stat-label {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 8px;
+    line-height: 1.5;
+  }
+
+  /* ── CULTURE ── */
+  .culture-section {
+    background: var(--darker);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .culture-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, var(--border), transparent);
+  }
+
+  .culture-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 60px;
+  }
+
+  @media (max-width: 768px) { .culture-cards { grid-template-columns: 1fr; } }
+
+  .culture-card {
+    padding: 56px 40px;
+    border: 1px solid var(--border);
+    background: rgba(8,12,20,0.7);
+    position: relative;
+    overflow: hidden;
+    transition: background 0.4s;
+  }
+
+  .culture-card:hover { background: var(--blue-pale); }
+
+  .culture-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--blue-pale);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 32px;
+    font-size: 28px;
+  }
+
+  .culture-card h3 {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--blue-glow);
+    margin-bottom: 16px;
+  }
+
+  .culture-card p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text-muted);
+  }
+
+  /* ── COMPETENCE ── */
+  .competence-section {
+    background: linear-gradient(135deg, #050810 0%, #0a1525 50%, #050810 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .competence-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(0,120,220,0.12) 0%, transparent 70%);
+  }
+
+  .comp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-top: 60px;
+  }
+
+  @media (max-width: 768px) { .comp-grid { grid-template-columns: 1fr; } }
+
+  .comp-card {
+    padding: 48px;
+    border: 1px solid var(--border);
+    background: rgba(0,10,25,0.6);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s;
+  }
+
+  .comp-card:hover { transform: translateY(-4px); }
+
+  .comp-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--blue-glow), transparent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s;
+  }
+
+  .comp-card:hover::after { transform: scaleX(1); }
+
+  .comp-big {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 80px;
+    font-weight: 300;
+    color: var(--blue-glow);
+    line-height: 1;
+    opacity: 0.9;
+  }
+
+  .comp-big small { font-size: 40px; vertical-align: super; }
+
+  .comp-card h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    margin: 16px 0 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+  }
+
+  .comp-card p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text-muted);
+  }
+
+  /* ── SURGERIES ── */
+  .surgeries-section {
+    background: var(--dark);
+    text-align: center;
+  }
+
+  .surgery-strip {
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    gap: 0;
+    margin-top: 60px;
+    border: 1px solid var(--border);
+  }
+
+  @media (max-width: 600px) {
+    .surgery-strip { grid-template-columns: 1fr; }
+    .surgery-divider { display: none; }
+  }
+
+  .surgery-item {
+    padding: 64px 48px;
+    position: relative;
+  }
+
+  .surgery-divider { background: var(--border); }
+
+  .surgery-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 88px;
+    font-weight: 300;
+    color: #fff;
+    line-height: 1;
+  }
+
+  .surgery-num span { color: var(--blue-glow); }
+
+  .surgery-label {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 12px;
+    line-height: 1.6;
+    max-width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .surgery-note {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--blue-mid);
+    margin-top: 8px;
+  }
+
+  /* ── INVESTORS ── */
+  .investors-section {
+    background: var(--darker);
+    border-top: 1px solid var(--border);
+  }
+
+  .investors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin-top: 48px;
+  }
+
+  .investor-tag {
+    padding: 20px 24px;
+    border: 1px solid var(--border);
+    background: var(--blue-pale);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+    text-align: center;
+    letter-spacing: 0.5px;
+    transition: border-color 0.3s, color 0.3s;
+  }
+
+  .investor-tag:hover { border-color: var(--blue-glow); color: var(--blue-glow); }
+
+  .valuation-bar {
+    margin-top: 48px;
+    padding: 40px 48px;
+    border: 1px solid var(--border);
+    background: linear-gradient(135deg, rgba(0,100,200,0.1), rgba(0,170,255,0.05));
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .valuation-big {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 64px;
+    font-weight: 300;
+    color: #fff;
+    white-space: nowrap;
+  }
+
+  .valuation-big span { color: var(--blue-glow); }
+
+  .valuation-text {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text-muted);
+    max-width: 480px;
+  }
+
+  /* ── REWARDS ── */
+  .rewards-section {
+    background: var(--dark);
+    position: relative;
+  }
+
+  .rewards-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--blue-glow), transparent);
+  }
+
+  .diplomas-mosaic {
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto auto;
+    gap: 12px;
+  }
+
+  @media (max-width: 768px) {
+    .diplomas-mosaic { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 480px) {
+    .diplomas-mosaic { grid-template-columns: 1fr; }
+  }
+
+  .diploma-frame {
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.02);
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s, border-color 0.3s;
+    cursor: pointer;
+  }
+
+  .diploma-frame:hover {
+    transform: scale(1.03);
+    border-color: rgba(200,169,110,0.5);
+    z-index: 2;
+  }
+
+  .diploma-frame::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(200,169,110,0.08), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .diploma-frame:hover::before { opacity: 1; }
+
+  .diploma-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.9) saturate(0.8);
+    transition: filter 0.3s;
+  }
+
+  .diploma-frame:hover img { filter: brightness(1.05) saturate(1); }
+
+  /* Mosaic spanning */
+  .diploma-frame.large { grid-column: span 2; grid-row: span 2; }
+  .diploma-frame.tall  { grid-row: span 2; }
+  .diploma-frame.wide  { grid-column: span 2; }
+
+  .diploma-frame .aspect { padding-bottom: 75%; }
+  .diploma-frame .aspect-tall { padding-bottom: 160%; }
+  .diploma-frame .aspect-wide { padding-bottom: 50%; }
+  .diploma-frame img { position: absolute; inset: 0; }
+
+  /* ── TIMELINE ── */
+  .timeline-section {
+    background: var(--darker);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .timeline-tabs {
+    display: flex;
+    gap: 0;
+    border: 1px solid var(--border);
+    margin-top: 60px;
+    overflow-x: auto;
+  }
+
+  .timeline-tab {
+    flex: 1;
+    min-width: 140px;
+    padding: 20px 24px;
+    text-align: center;
+    cursor: pointer;
+    border-right: 1px solid var(--border);
+    transition: background 0.3s;
+  }
+
+  .timeline-tab:last-child { border-right: none; }
+
+  .timeline-tab.active {
+    background: var(--blue-pale);
+    border-bottom: 2px solid var(--blue-glow);
+  }
+
+  .timeline-tab .tab-year {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    color: #fff;
+  }
+
+  .timeline-tab.active .tab-year { color: var(--blue-glow); }
+
+  .timeline-tab .tab-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    margin-top: 4px;
+    text-transform: uppercase;
+  }
+
+  .timeline-content {
+    display: none;
+    padding: 64px 0;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .timeline-content.active { display: grid; }
+
+  @media (max-width: 768px) { .timeline-content { grid-template-columns: 1fr; gap: 40px; } }
+
+  .timeline-desc h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 300;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+
+  .timeline-desc p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--text-muted);
+  }
+
+  .timeline-events { display: flex; flex-direction: column; gap: 0; }
+
+  .timeline-event {
+    padding: 24px 0;
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 80px 32px 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+
+  .timeline-event:last-child { border-bottom: none; }
+
+  .event-year {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    color: var(--blue-glow);
+    font-weight: 500;
+  }
+
+  .event-month {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    padding-top: 6px;
+  }
+
+  .event-text {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text-muted);
+    padding-top: 4px;
+  }
+
+  /* ── FOOTER ── */
+  .footer-section {
+    background: var(--darker);
+    padding: 60px 24px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+  }
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    color: #fff;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+
+  .footer-logo span { color: var(--blue-glow); }
+
+  .footer-mission {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 16px;
+    letter-spacing: 1px;
+  }
+
+  /* ── LIGHTBOX ── */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(4,7,16,0.96);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+
+  .lightbox.open { display: flex; }
+
+  .lightbox img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    border: 1px solid var(--border);
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: 24px; right: 32px;
+    font-size: 32px;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-family: 'Space Mono', monospace;
+  }
+
+  .lightbox-close:hover { color: #fff; }
+
+  /* Scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s, transform 0.7s;
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* Pulse dot */
+  @keyframes pulse {
+    0%,100% { opacity:1; transform: scale(1); }
+    50% { opacity:0.4; transform: scale(1.5); }
+  }
+  .pulse-dot {
+    display: inline-block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--blue-glow);
+    animation: pulse 2s infinite;
+    margin-right: 8px;
+  }
+  .diplomas-mosaic {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    justify-items: center;
+    align-items: center;
+}
+
+.diplomas-mosaic img {
+    width: 90px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+        /* Ensure you include the .diplomas-mosaic and .reveal styles */
+    </style>
+</head>
+<body>
+
+   <nav class="navbar" id="navbar">
+  <div class="nav-inner">
+
+    <a href="../homepage/index.html" class="nav-logo">
+      <img src="../../media/Images/logo.png" alt="Edge Medical" class="logo-img">
+    </a>
+
+    <button class="nav-hamburger" id="hamburgerBtn" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="nav-links" id="navLinks">
+
+      <li class="nav-item has-dropdown">
+        <a href="../about/about_edge.html" class="nav-link">
+          ჩვენს შესახებ
+          <svg class="chevron" viewBox="0 0 10 6" width="12" height="8" aria-hidden="true">
+            <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          </svg>
+        </a>
+        <ul class="dropdown">
+          <li><a href="../about/about_edge.html">Edge ის შესახებ</a></li>
+          <li><a href="../about/our_culture.html">ჩვენი კულტურა</a></li>
+          <li><a href="../about/reward_and_qualification.html">ჯილდოები</a></li>
+        </ul>
+      </li>
+
+      <li class="nav-item has-dropdown">
+        <a href="../products/multi_port_robot.html" class="nav-link">
+          პროდუქტი
+          <svg class="chevron" viewBox="0 0 10 6" width="12" height="8" aria-hidden="true">
+            <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          </svg>
+        </a>
+        <ul class="dropdown">
+          <li><a href="../products/multi_port_robot.html">მრავალპორტიანი ქირურგიული რობოტი</a></li>
+          <li><a href="../products/single_port_robot.html">ერთპორტიანი ქირურგიული რობოტი</a></li>
+          <li><a href="../products/bronchoscopic_robot.html">ბრონქოსკოპიური რობოტი</a></li>
+        </ul>
+      </li>
+
+      <li class="nav-item has-dropdown">
+        <a href="../contact/contacts.html" class="nav-link">
+          დაგვიკავშირდით
+          <svg class="chevron" viewBox="0 0 10 6" width="12" height="8" aria-hidden="true">
+            <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          </svg>
+        </a>
+        <ul class="dropdown">
+          <li><a href="tel:4008609000">400-860-9000</a></li>
+          <li><a href="mailto:contact@edgemed.cn">contact@edgemed.cn</a></li>
+        </ul>
+      </li>
+
+      <li class="nav-item nav-icon-item">
+        <button class="nav-icon-btn" aria-label="Search" id="searchBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </button>
+      </li>
+
+    </ul>
+  </div>
+
+  <div class="search-bar" id="searchBar" hidden>
+    <div class="search-inner">
+      <input type="text" placeholder="Search Edge Medical..." class="search-input" id="searchInput">
+      <button class="search-close" id="searchClose" aria-label="Close search">✕</button>
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+  <main class="main-content">
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-content">
+      <div class="eyebrow">შტაბ-ბინა: შენჟენი, ჩინეთი</div>
+      <h1>Edge <em>Medical</em><br>შესახებ</h1>
+      <p class="hero-sub">
+        ქირურგიული რობოტიკის ინოვაციების გამოცდილ ლიდერი — ვაუმჯობესებთ ქირურგიას და ვზრდით სამედიცინო ხარისხს.
+      </p>
+      <div class="hero-line"></div>
+    </div>
+    <div class="hero-arc"></div>
+  </section>
+
+  <!-- ABOUT + STATS -->
+  <section style="background:var(--dark); padding: 100px 24px;">
+    <div class="container">
+      <div class="about-grid reveal">
+        <div class="about-text">
+          <div class="section-label">ვინ ვართ ჩვენ</div>
+          <h2 class="section-title">ქირურგიული რობოტიკის<br>პიონერები</h2>
+          <p>
+            Edge Medical®-მა შექმნა მულტიდისციპლინური R&amp;D და წარმოების გუნდი, რომელსაც გააჩნია
+            <strong>10 წელზე მეტი ტექნოლოგიური გამოცდილება</strong>.
+            ჩვენი ქირურგიული რობოტული სისტემები ინდუსტრიის სტანდარტს ადგენენ და მოიცავს მრავალპორტიან,
+            ერთპორტიან და ბრონქოსკოპიულ ქირურგიულ რობოტებს.
+          </p>
+          <p>
+            2024 წელს განხორციელდა ისტორიული <strong>ტრანსკონტინენტური ტელექირურგიული ოპერაცია</strong>
+            რომიდან, ბორდოდან და პეკინიდან — რაც გახდა ახალი ეტაპი ქირურგიის ისტორიაში.
+          </p>
+          <p>
+            ჩვენი გუნდი და პარტნიორები წარმოდგენილია <strong>25-ზე მეტ ქვეყანაში</strong>,
+            რაც საშუალებას გვაძლევს დავაჩქაროთ რობოტული ქირურგიის გლობალური გავრცელება.
+          </p>
+          <p>
+            Edge Medical არის ერთადერთი ჩინური კომპანია, რომელიც ერთდროულად გთავაზობთ
+            <strong>მრავალპორტიან, ერთპორტიან და ბრონქოსკოპიულ</strong> ქირურგიულ რობოტებს.
+          </p>
+        </div>
+        <div class="about-stats">
+          <div class="stat-card">
+            <div class="stat-num"><span>&gt;</span>700</div>
+            <div class="stat-label">გლობალურად რეგისტრირებული პატენტები და განაცხადები — ინტელექტუალური საკუთრების სრული სისტემა</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">25<span>+</span></div>
+            <div class="stat-label">ქვეყანა, სადაც წარმოდგენილია Edge Medical-ის თანამშრომლები და პარტნიორები</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">US$1.5<span>B+</span></div>
+            <div class="stat-label">კომპანიის შეფასება 2021 წლის Cross-over რაუნდში</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CULTURE -->
+  <section class="culture-section">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label">ჩვენი კულტურა</div>
+        <h2 class="section-title">მისია, ხედვა<br>და ღირებულებები</h2>
+      </div>
+      <div class="culture-cards reveal">
+        <div class="culture-card">
+          <div class="culture-icon">🚀</div>
+          <h3>მისია</h3>
+          <p>ქირურგიული ტექნოლოგიების განვითარება და პაციენტების მკურნალობის გაუმჯობესება</p>
+        </div>
+        <div class="culture-card">
+          <div class="culture-icon">🎯</div>
+          <h3>ხედვა</h3>
+          <p>ყოველი საოპერაციო ოთახის რობოტიზაცია</p>
+        </div>
+        <div class="culture-card">
+          <div class="culture-icon">💎</div>
+          <h3>ღირებულება</h3>
+          <p>ტექნოლოგიური სრულყოფილების მუდმივი ძიება საუკეთესო პროდუქტის შესაქმნელად</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CORE COMPETENCE -->
+  <section class="competence-section">
+    <div class="container" style="position:relative;z-index:1;">
+      <div class="reveal">
+        <div class="section-label">ძირითადი უპირატესობა</div>
+        <h2 class="section-title">რატომ ლიდერობს<br>Edge Medical</h2>
+      </div>
+      <div class="comp-grid reveal">
+        <div class="comp-card">
+          <div class="comp-big"><small>&gt;</small>700</div>
+          <h4>პატენტები მსოფლიოში</h4>
+          <p>700+ რეგისტრირებული პატენტი და ძლიერი ინტელექტუალური საკუთრების სისტემა ქირურგიული რობოტიკის სფეროში.</p>
+        </div>
+        <div class="comp-card">
+          <div class="comp-big">7</div>
+          <h4>ძირითადი ტექნოლოგიური პლატფორმა</h4>
+          <p>7 ძირითადი ტექნოლოგიური პლატფორმა, რომელიც განსაზღვრავს ქირურგიული სიზუსტის ინდუსტრიულ სტანდარტს.</p>
+        </div>
+        <div class="comp-card">
+          <div class="comp-big" style="font-size:48px;line-height:1.2;">2-ე<br><small style="font-size:24px;">კლასი</small></div>
+          <h4>ეროვნული ჯილდო</h4>
+          <p>ეროვნული მეცნიერებისა და ტექნოლოგიის პროგრესის ჯილდო (II კლასი) — უმაღლესი სამეცნიერო აღიარება ჩინეთში.</p>
+        </div>
+        <div class="comp-card">
+          <div class="comp-big">360M</div>
+          <h4>რეგისტრირებული კაპიტალი</h4>
+          <p>ინვესტორები: Boyu, Temasek, HongShan, 3H Health, LYFE Capital, China SOE Reform Fund, OrbiMed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SURGERIES -->
+  <section class="surgeries-section">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label" style="text-align:center;">კლინიკური შედეგები</div>
+        <h2 class="section-title" style="text-align:center;">შესრულებული ოპერაციები</h2>
+        <p style="color:var(--text-muted);text-align:center;font-size:13px;margin-bottom:0;">
+          <span class="pulse-dot"></span>2025 წლის დეკემბრის მონაცემები
+        </p>
+      </div>
+      <div class="surgery-strip reveal">
+        <div class="surgery-item">
+          <div class="surgery-num">12<span>,000+</span></div>
+          <div class="surgery-label">Multi-Port რობოტით შესრულებული ოპერაციები</div>
+          <div class="surgery-note">MP1000 სერია</div>
+        </div>
+        <div class="surgery-divider"></div>
+        <div class="surgery-item">
+          <div class="surgery-num">2<span>,000+</span></div>
+          <div class="surgery-label">Single-Port რობოტით შესრულებული ოპერაციები</div>
+          <div class="surgery-note">SP1000 სერია</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INVESTORS -->
+  <section class="investors-section">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label">ინვესტორები</div>
+        <h2 class="section-title">მხარდამჭერები</h2>
+      </div>
+      <div class="investors-grid reveal">
+        <div class="investor-tag">HongShan</div>
+        <div class="investor-tag">Temasek</div>
+        <div class="investor-tag">OrbiMed</div>
+        <div class="investor-tag">Boyu Capital</div>
+        <div class="investor-tag">3H Health</div>
+        <div class="investor-tag">LYFE Capital</div>
+        <div class="investor-tag">China SOE Fund</div>
+      </div>
+      <div class="valuation-bar reveal">
+        <div class="valuation-big">US$<span>1.5B</span>+</div>
+        <div class="valuation-text">
+          Edge Medical-ის შეფასება 2021 წლის Cross-over რაუნდში აღემატება 1.5 მილიარდ აშშ დოლარს.
+          კომპანია მხარდაჭერილია მსოფლიოში წამყვანი სამედიცინო ინვესტორებით.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REWARDS -->
+  <section class="rewards-section">
+    <div class="container">
+      <div class="section-label">ჯილდოები</div>
+      <div id="diplomaGrid" class="diplomas-mosaic"></div>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <div class="lightbox-close" onclick="closeLightbox()">×</div>
+    <img id="lightboxImg" src="" alt="">
+  </div>
+
+</main>
+
+  <!-- TIMELINE -->
+  <section class="timeline-section">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label">ისტორია</div>
+        <h2 class="section-title">Edge Medical-ის<br>განვითარება</h2>
+      </div>
+      <div class="timeline-tabs">
+        <div class="timeline-tab active" onclick="switchTab(0)">
+          <div class="tab-year">2015</div>
+          <div class="tab-label">დასაწყისი</div>
+        </div>
+        <div class="timeline-tab" onclick="switchTab(1)">
+          <div class="tab-year">2020</div>
+          <div class="tab-label">გაფართოება</div>
+        </div>
+        <div class="timeline-tab" onclick="switchTab(2)">
+          <div class="tab-year">2024</div>
+          <div class="tab-label">გლობალური</div>
+        </div>
+      </div>
+      <div class="timeline-content active">
+        <div class="timeline-desc">
+          <h2>2015: დასაწყისი</h2>
+          <p>Edge Medical დაარსდა შენჟენში, ჩინეთში, ქირურგიული რობოტიკის პიონერად.</p>
+        </div>
+        <div class="timeline-events">
+          <div class="timeline-event">
+            <div class="event-year">2015</div>
+            <div class="event-month">იან</div>
+            <div class="event-text">კომპანიის დაფუძნება</div>
+          </div>
+          <div class="timeline-event">
+            <div class="event-year">2016</div>
+            <div class="event-month">მარ</div>
+            <div class="event-text">პირველი პატენტის რეგისტრაცია</div>
+          </div>
+        </div>
+      </div>
+      <div class="timeline-content">
+        <div class="timeline-desc">
+          <h2>2020: გაფართოება</h2>
+          <p>გაფართოება აზიაში და ევროპაში.</p>
+        </div>
+        <div class="timeline-events">
+          <div class="timeline-event">
+            <div class="event-year">2020</div>
+            <div class="event-month">ივნ</div>
+            <div class="event-text">პირველი საერთაშორისო პარტნიორობა</div>
+          </div>
+        </div>
+      </div>
+      <div class="timeline-content">
+        <div class="timeline-desc">
+          <h2>2024: გლობალური</h2>
+          <p>ტრანსკონტინენტური ოპერაცია და გლობალური გაფართოება.</p>
+        </div>
+        <div class="timeline-events">
+          <div class="timeline-event">
+            <div class="event-year">2024</div>
+            <div class="event-month">დეკ</div>
+            <div class="event-text">ტრანსკონტინენტური ტელექირურგია</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-main">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="../homepage/index.html">
+          <img src="../../media/Images/logo.png" alt="Edge Medical" class="footer-logo-img">
+        </a>
+        <p class="footer-tagline">Advancing Surgery · Elevating Care</p>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Contact</h4>
+        <ul class="footer-list">
+          <li>Room 01, Shenzhen, PRC</li>
+          <li>400-860-9000</li>
+          <li><a href="mailto:contact@edgemed.cn">contact@edgemed.cn</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <span>© 2025 Edge Medical®. All rights reserved.</span>
+      <span class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <span class="footer-divider">|</span>
+        <a href="#">Legal Disclaimer</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+    <!-- FOOTER -->
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-close">×</div>
+        <img id="lightboxImg" src="" alt="">
+    </div>
+
+    <script>
+        const diplomaGrid = document.getElementById('diplomaGrid');
+  const totalDiplomas = 14;
+
+  const layouts = [
+    { cls: 'large', aspect: 'aspect' },  // 0: spans 2x2
+    { cls: '', aspect: 'aspect' },        // 1
+    { cls: '', aspect: 'aspect' },        // 2
+    { cls: 'tall', aspect: 'aspect-tall' },// 3: spans 2 rows
+    { cls: '', aspect: 'aspect' },        // 4
+    { cls: 'wide', aspect: 'aspect-wide' },// 5
+    { cls: '', aspect: 'aspect' },        // 6
+    { cls: '', aspect: 'aspect' },        // 7
+    { cls: '', aspect: 'aspect' },        // 8
+    { cls: '', aspect: 'aspect' },        // 9
+    { cls: 'wide', aspect: 'aspect-wide' },// 10
+    { cls: '', aspect: 'aspect' },        // 11
+    { cls: '', aspect: 'aspect' },        // 12
+    { cls: '', aspect: 'aspect' },        // 13
+  ];
+
+  for (let i = 1; i <= totalDiplomas; i++) {
+    const l = layouts[i - 1] || { cls: '', aspect: 'aspect' };
+    const frame = document.createElement('div');
+    frame.className = `diploma-frame ${l.cls}`;
+    frame.innerHTML = `
+      <div class="${l.aspect}" style="position:relative;">
+        <img src="../../media/Images/diplomi${i}.png" alt="Award & Qualification ${i}" 
+             onerror="this.parentElement.parentElement.style.display='none'"
+             onclick="openLightbox(this.src)">
+      </div>`;
+    diplomaGrid.appendChild(frame);
+  }
+
+  function openLightbox(src) {
+    document.getElementById('lightboxImg').src = src;
+    document.getElementById('lightbox').classList.add('open');
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+  }
+
+  // Timeline tabs
+  function switchTab(idx) {
+    document.querySelectorAll('.timeline-tab').forEach((t, i) => {
+      t.classList.toggle('active', i === idx);
+    });
+    document.querySelectorAll('.timeline-content').forEach((c, i) => {
+      c.classList.toggle('active', i === idx);
+    });
+  }
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
