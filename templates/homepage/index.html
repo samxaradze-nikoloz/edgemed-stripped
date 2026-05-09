@@ -5,12 +5,28 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Edge Medical Georgia — Minimally Invasive Surgical Solutions</title>
 
-  <link rel="stylesheet" href="../../static/css/main.css">
+  <!-- FOUC fix -->
+  <style> html { visibility: hidden; opacity: 0; } </style>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="../../static/css/main.css">
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
+
+<!-- LOADER -->
+<div class="page-loader" id="pageLoader">
+  <div class="loader-inner">
+    <div class="loader-logo">EDGE <span>MEDICAL</span></div>
+    <div class="loader-dots">
+      <div class="loader-dot"></div>
+      <div class="loader-dot"></div>
+      <div class="loader-dot"></div>
+    </div>
+  </div>
+</div>
 
 <!-- TOPBAR -->
 <div class="topbar">
@@ -24,7 +40,7 @@
 <nav class="navbar" id="navbar">
   <div class="nav-inner">
 
-    <a href="index.html" class="nav-logo">
+    <a href="../homepage/index.html" class="nav-logo">
       <img src="../../media/Images/logo.png" alt="Edge Medical" class="logo-img">
     </a>
 
@@ -35,7 +51,7 @@
     <ul class="nav-links" id="navLinks">
 
       <li class="nav-item has-dropdown">
-        <a href="../about/about_edge.html" class="nav-link">
+        <a  class="nav-link">
           ჩვენს შესახებ
           <svg class="chevron" viewBox="0 0 10 6" width="12" height="8" aria-hidden="true">
             <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
@@ -49,7 +65,7 @@
       </li>
 
       <li class="nav-item has-dropdown">
-        <a href="../products/multi_port_robot.html" class="nav-link">
+        <a class="nav-link">
           პროდუქტი
           <svg class="chevron" viewBox="0 0 10 6" width="12" height="8" aria-hidden="true">
             <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
@@ -64,15 +80,15 @@
       </li>
 
       <li class="nav-item has-dropdown">
-        <a>
+        <a href="#" class="nav-link">
           დაგვიკავშირდით
           <svg class="chevron" viewBox="0 0 10 6" width="12" height="8" aria-hidden="true">
             <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
           </svg>
         </a>
         <ul class="dropdown">
-          <li><a >Num : 400-860-9000</a></li>
-          <li><a >Gmail: contact@edgemed.cn</a></li>
+          <li><a href="tel:4008609000">📞 400-860-9000</a></li>
+          <li><a href="mailto:contact@edgemed.cn">✉️ contact@edgemed.cn</a></li>
         </ul>
       </li>
 
@@ -130,33 +146,27 @@
         <h2 class="section-title">ჩვენი პროდუქტი</h2>
         <p class="section-sub">სიზუსტე, ინოვაცია და ნდობა თქვენი ჯანმრთელობისთვის</p>
       </div>
-
       <div class="products-grid">
-
         <a href="../products/multi_port_robot.html" class="product-card">
           <img src="../../media/Images/multi_port_endoschopic.png" class="product-img" alt="მრავალპორტიანი ქირურგიული რობოტი">
           <h3>მრავალპორტიანი ქირურგიული რობოტი</h3>
           <p>მაღალი სიზუსტის ტექნოლოგია რთული ქირურგიული ოპერაციებისთვის</p>
         </a>
-
         <a href="../products/single_port_robot.html" class="product-card">
           <img src="../../media/Images/single_port_endoschopic.png" class="product-img" alt="ერთპორტიანი ქირურგიული რობოტი">
           <h3>ერთპორტიანი ქირურგიული რობოტი</h3>
           <p>ერთმკლავიანი და ერთპორტიანი დიზაინი ქირურგიული პროცედურის ერთი წვდომის არხის მეშვეობით</p>
         </a>
-
         <a href="../products/cloud_telesurgery.html" class="product-card">
           <img src="../../media/Images/cloud_telesurgery.png" class="product-img" alt="ღრუბლოვანი ტელექირურგია">
           <h3>ღრუბლოვანი ტელექირუგია</h3>
           <p>დისტანციური სამედიცინო თანამშრომლობა დაკავშირებული ქირურგიული ტექნოლოგიების გამოყენებით</p>
         </a>
-
         <a href="../products/bronchoscopic_robot.html" class="product-card">
           <img src="../../media/Images/bronchoscopic.png" class="product-img" alt="ბრონქოსკოპიური რობოტი">
           <h3>ბრონქოსკოპიური რობოტი</h3>
           <p>ფილტვების ზუსტი დიაგნოსტიკა და ჩარევა რესპირატორული მოვლისთვის</p>
         </a>
-
       </div>
     </div>
   </section>
@@ -168,22 +178,10 @@
         <h2 class="section-title">რატომ ავირჩიოთ Edge Medical</h2>
       </div>
       <div class="products-grid">
-        <div class="product-card">
-          <h3>სიზუსტე</h3>
-          <p>მაქსიმალური კონტროლი და მინიმალური ქირურგიული შეცდომა.</p>
-        </div>
-        <div class="product-card">
-          <h3>უსაფრთხოება</h3>
-          <p>პაციენტზე ორიენტირებული სისტემები, რომლებიც შექმნილია ნდობისა და მზრუნველობისთვის.</p>
-        </div>
-        <div class="product-card">
-          <h3>ინოვაცია</h3>
-          <p>ხელოვნური ინტელექტი, ღრუბლოვანი სისტემები და მოწინავე ციფრული ინტეგრაცია.</p>
-        </div>
-        <div class="product-card">
-          <h3>მხარდაჭერა</h3>
-          <p>სანდო ადგილობრივი მხარდაჭერა კლინიკებისა და საავადმყოფოებისთვის მთელი საქართველოს მასშტაბით.</p>
-        </div>
+        <div class="product-card"><h3>სიზუსტე</h3><p>მაქსიმალური კონტროლი და მინიმალური ქირურგიული შეცდომა.</p></div>
+        <div class="product-card"><h3>უსაფრთხოება</h3><p>პაციენტზე ორიენტირებული სისტემები, რომლებიც შექმნილია ნდობისა და მზრუნველობისთვის.</p></div>
+        <div class="product-card"><h3>ინოვაცია</h3><p>ხელოვნური ინტელექტი, ღრუბლოვანი სისტემები და მოწინავე ციფრული ინტეგრაცია.</p></div>
+        <div class="product-card"><h3>მხარდაჭერა</h3><p>სანდო ადგილობრივი მხარდაჭერა კლინიკებისა და საავადმყოფოებისთვის მთელი საქართველოს მასშტაბით.</p></div>
       </div>
     </div>
   </section>
@@ -196,18 +194,9 @@
         <h2 class="section-title">კვლევა და წარმოება</h2>
       </div>
       <div class="news-grid">
-        <a class="news-card">
-          <span class="news-tag">კორპორაცია</span>
-          <h4 class="news-title">ახალი პარტნიორობები საქართველოს საავადმყოფოებთან</h4>
-        </a>
-        <a class="news-card">
-          <span class="news-tag">კვლევა</span>
-          <h4 class="news-title">კვლევები აუმჯობესებენ ქირურგიულ ეფექტურობას და პაციენტის გამოჯანმრთელებას</h4>
-        </a>
-        <a class="news-card">
-          <span class="news-tag">ტექნოლოგია</span>
-          <h4 class="news-title">ახალი ღია პლატფორმა საერთაშორისო სერტიფიკატით</h4>
-        </a>
+        <a class="news-card"><span class="news-tag">კორპორაცია</span><h4 class="news-title">ახალი პარტნიორობები საქართველოს საავადმყოფოებთან</h4></a>
+        <a class="news-card"><span class="news-tag">კვლევა</span><h4 class="news-title">კვლევები აუმჯობესებენ ქირურგიულ ეფექტურობას და პაციენტის გამოჯანმრთელებას</h4></a>
+        <a class="news-card"><span class="news-tag">ტექნოლოგია</span><h4 class="news-title">ახალი ღია პლატფორმა საერთაშორისო სერტიფიკატით</h4></a>
       </div>
     </div>
   </section>
@@ -220,22 +209,10 @@
         <h2 class="section-title">ჯანმრთელობის მხარდაჭერა</h2>
       </div>
       <div class="products-grid">
-        <div class="product-card">
-          <h3>ტრენინგი</h3>
-          <p>მედიკალური პერსონალის ტრენინგი და ავანსებული რობოტულ სისტემებთან.</p>
-        </div>
-        <div class="product-card">
-          <h3>ინსტალაცია</h3>
-          <p>უსაფრთხო და ეფექტიური კლინიკებში გამოყენება</p>
-        </div>
-        <div class="product-card">
-          <h3>შენარჩუნება</h3>
-          <p>სანდო და მარტივად მოსავლელი ხანგრძლივი მოხმარებისთვის</p>
-        </div>
-        <div class="product-card">
-          <h3>კონსულტაცია</h3>
-          <p>პროფესიონალური გიდი სამედიცინო დაწყებებისთვის.</p>
-        </div>
+        <div class="product-card"><h3>ტრენინგი</h3><p>მედიკალური პერსონალის ტრენინგი და ავანსებული რობოტულ სისტემებთან.</p></div>
+        <div class="product-card"><h3>ინსტალაცია</h3><p>უსაფრთხო და ეფექტიური კლინიკებში გამოყენება</p></div>
+        <div class="product-card"><h3>შენარჩუნება</h3><p>სანდო და მარტივად მოსავლელი ხანგრძლივი მოხმარებისთვის</p></div>
+        <div class="product-card"><h3>კონსულტაცია</h3><p>პროფესიონალური გიდი სამედიცინო დაწყებებისთვის.</p></div>
       </div>
     </div>
   </section>
@@ -278,10 +255,7 @@
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const video = document.querySelector(".hero-video");
-  if (video) {
-    video.muted = true;
-    video.volume = 0;
-  }
+  if (video) { video.muted = true; video.volume = 0; }
 });
 </script>
 
