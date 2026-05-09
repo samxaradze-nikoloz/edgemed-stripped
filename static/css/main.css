@@ -1,3 +1,5 @@
+
+
 :root {
   --white: #ffffff;
   --off-white: #f8f9fc;
@@ -26,6 +28,9 @@ html {
   font-size: 16px;
   scroll-behavior: smooth;
 }
+
+
+
 
 body {
   font-family: var(--font-body);
@@ -257,57 +262,6 @@ body {
 .nav-icon-btn svg {
   width: 20px;
   height: 20px;
-}
-
-.search-bar {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background: var(--white);
-  border-top: 1px solid var(--border);
-  border-bottom: 2px solid var(--accent);
-  height: 0;
-  overflow: hidden;
-  transition: height var(--transition);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-}
-
-.search-bar.open {
-  height: 60px;
-}
-
-.search-inner {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 32px;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.search-input {
-  flex: 1;
-  border: none;
-  outline: none;
-  font-size: 16px;
-  font-family: var(--font-body);
-  color: var(--text-dark);
-  background: transparent;
-}
-
-.search-close {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  color: var(--text-light);
-  transition: color var(--transition);
-}
-
-.search-close:hover {
-  color: var(--accent);
 }
 
 .nav-hamburger {
@@ -1815,3 +1769,161 @@ body {
         text-align: center;
     }
 }
+
+
+/* ═══════════════════════════════════════════
+   SMOOTH SCROLL + PAGE TRANSITIONS
+═══════════════════════════════════════════ */
+
+/* Smooth scrolling for the whole page */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Reduce scroll jank on mobile */
+* {
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Page fade in / fade out */
+body.page-transition {
+    opacity: 0;
+    transition: opacity 0.28s ease;
+}
+
+body.page-visible {
+    opacity: 1;
+}
+
+/* Smoother image rendering */
+img {
+    image-rendering: auto;
+    will-change: auto;
+}
+
+/* GPU-accelerate elements that animate */
+.navbar,
+.dropdown,
+.nav-links,
+.product-card,
+.news-card,
+.btn,
+.strip-item img,
+.carousel img,
+.related-carousel img {
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Smoother card hovers */
+.product-card,
+.news-card,
+.portfolio-card,
+.related-card,
+.globe-card {
+    transition: transform 0.25s cubic-bezier(.4,0,.2,1),
+                box-shadow 0.25s cubic-bezier(.4,0,.2,1),
+                background 0.25s cubic-bezier(.4,0,.2,1);
+}
+
+/* Smoother button hovers */
+.btn {
+    transition: background 0.22s ease,
+                border-color 0.22s ease,
+                transform 0.22s ease,
+                box-shadow 0.22s ease;
+}
+
+/* Smoother strip item hover */
+.strip-item img {
+    transition: border 0.2s ease, transform 0.2s ease;
+}
+.strip-item:hover img {
+    transform: translateY(-3px);
+}
+
+/* Smoother carousel transitions */
+.carousel img,
+.related-carousel img {
+    transition: opacity 0.7s ease-in-out;
+}
+
+
+/* ═══════════════════════════════════════
+   PASTE THIS AT BOTTOM OF main.css
+═══════════════════════════════════════ */
+
+.page-loader {
+    position: fixed;
+    inset: 0;
+    background: #0a0a0a;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.page-loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.loader-logo {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.12em;
+}
+
+.loader-logo span {
+    color: #007bff;
+}
+
+.loader-dots {
+    display: flex;
+    gap: 10px;
+}
+
+.loader-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #007bff;
+    animation: loaderPulse 1.2s ease-in-out infinite;
+}
+
+.loader-dot:nth-child(2) { animation-delay: 0.2s; }
+.loader-dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes loaderPulse {
+    0%, 100% { transform: scale(1);   opacity: 0.3; }
+    50%       { transform: scale(1.6); opacity: 1;   }
+}
+
+
+/* ═══════════════════════════════════════
+   PASTE THIS AT BOTTOM OF main.js
+   inside the DOMContentLoaded block
+═══════════════════════════════════════ */
+
+/*
+    // ── PAGE LOADER ───────────────────────────────────────────
+    const loader = document.getElementById("pageLoader");
+    if (loader) {
+        window.addEventListener("load", () => {
+            setTimeout(() => {
+                loader.classList.add("hidden");
+            }, 600);
+        });
+    }
+*/

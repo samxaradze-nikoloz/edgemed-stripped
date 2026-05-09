@@ -57,7 +57,7 @@
           <li><a href="multi_port_robot.html">მრავალპორტიანი ქირურგიული რობოტი</a></li>
           <li><a href="single_port_robot.html">ერთპორტიანი ქირურგიული რობოტი</a></li>
           <li><a href="bronchoscopic_robot.html">ბრონქოსკოპიური რობოტი</a></li>
-            <li><a href="cloud_telesurgery.html">ღრუბლოვანი ტელექირურგია</a></li>
+          <li><a href="cloud_telesurgery.html">ღრუბლოვანი ტელექირურგია</a></li>
         </ul>
       </li>
 
@@ -74,23 +74,7 @@
         </ul>
       </li>
 
-      <li class="nav-item nav-icon-item">
-        <button class="nav-icon-btn" aria-label="Search" id="searchBtn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
-            <circle cx="11" cy="11" r="8"/>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-          </svg>
-        </button>
-      </li>
-
     </ul>
-  </div>
-
-  <div class="search-bar" id="searchBar" hidden>
-    <div class="search-inner">
-      <input type="text" placeholder="Search Edge Medical..." class="search-input" id="searchInput">
-      <button class="search-close" id="searchClose" aria-label="Close search">✕</button>
-    </div>
   </div>
 </nav>
 
@@ -139,7 +123,7 @@
     <div class="section-inner">
       <h2>კლინიკური მიმართულება</h2>
       <p>
-        Edge მრავალპორტიანი ენდოსკოპიური ქირურგიული რობოტი შექმნილია მაღალი სიზუსტის მინიმალურად ინვაზიური ქირურგიისთვის სხვადასხვა სპეციალობაში, მათ შორის უროლოგიაში, გინეკოლოგიაში, თორაკალურ და ზოგან ქირურგიაში.
+        Edge მრავალპორტიანი ენდოსკოპიური ქირურგიული რობოტი შექმნილია მაღალი სიზუსტის მინიმალურად ინვაზიური ქირურგიისთვის სხვადასხვა სპეციალობაში, მათ შორის უროლოგიაში, გინეკოლოგიაში, თორაკალურ და ზოგად ქირურგიაში.
       </p>
       <p>
         სისტემა აერთიანებს რობოტულ სიზუსტეს, მოწინავე ვიზუალიზაციას და ქირურგის ერგონომიულ კონტროლს, რათა გააუმჯობესოს ოპერაციული შედეგები და შეამციროს პაციენტის რეაბილიტაციის დრო.
@@ -277,213 +261,196 @@
 
 <script src="../../static/js/main.js"></script>
 
-</body>
-</html>
-
 <script>
-
-function carousel(id, speed=2500){
+function carousel(id, speed=2500) {
     const el = document.getElementById(id);
     const imgs = el.querySelectorAll("img");
     let i = 0;
-
-    setInterval(()=>{
+    setInterval(() => {
         imgs[i].classList.remove("active");
         i = (i + 1) % imgs.length;
         imgs[i].classList.add("active");
     }, speed);
 }
 
-document.addEventListener("DOMContentLoaded", ()=>{
+document.addEventListener("DOMContentLoaded", () => {
     carousel("c1");
     carousel("c2");
 });
-
 </script>
 
 <style>
 
-.product-strip{
-    padding:15px 0;
-    background:#fff;
-    border-bottom:1px solid #eee;
+/* ── PRODUCT STRIP (matches single_port_robot.html) ── */
+.product-strip {
+    padding: 25px 0;
+    border-bottom: 1px solid #eee;
 }
 
-.strip-inner{
-    display:flex;
-    justify-content:center;
-    gap:15px;
-    flex-wrap:wrap;
+.strip-inner {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
 }
 
-.strip-item{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    width:85px;
-    text-decoration:none;
-    color:#000;
+.strip-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 140px;
+    text-decoration: none;
+    color: #000;
 }
 
-.strip-item img{
-    width:65px;
-    height:50px;
-    object-fit:cover;
-    border-radius:8px;
+.strip-item img {
+    width: 110px;
+    height: 85px;
+    object-fit: cover;
+    border-radius: 12px;
 }
 
-.strip-item span{
-    font-size:11px;
-    margin-top:5px;
+.strip-item span {
+    font-size: 11px;
+    margin-top: 5px;
 }
 
-.strip-item.active img{
-    border:2px solid #007bff;
+.strip-item.active img {
+    border: 3px solid #007bff;
 }
 
-.product-hero{
-    padding:60px 0;
+/* ── PAGE SECTIONS ── */
+.product-hero {
+    padding: 70px 0;
 }
 
-.hero-box{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:40px;
+.hero-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
 }
 
-.hero-text h1{
-    font-size:36px;
-    margin:10px 0;
+.hero-text h1 {
+    font-size: 36px;
+    margin: 10px 0;
 }
 
-.hero-image img{
-    width:320px;
-    border-radius:12px;
+.hero-image img {
+    width: 340px;
+    border-radius: 12px;
 }
 
-.product-summary{
-    padding:50px 0;
+.product-summary {
+    padding: 60px 0;
 }
 
-.feature-section{
-    padding:60px 0;
+.feature-section {
+    padding: 60px 0;
 }
 
-.feature-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:20px;
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
 }
 
-.feature-card{
-    padding:20px;
-    background:#f9f9f9;
-    border-radius:10px;
+.feature-card {
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
 }
 
-.instrument-section{
-    padding:60px 0;
+.instrument-section {
+    padding: 60px 0;
 }
 
-.instrument-row{
-    display:flex;
-    gap:40px;
-    align-items:center;
-    margin-bottom:50px;
+.instrument-row {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 50px;
 }
 
-.instrument-row.reverse{
-    flex-direction:row-reverse;
+.instrument-row.reverse {
+    flex-direction: row-reverse;
 }
 
-.carousel{
-    width:180px;
-    height:140px;
-    overflow:hidden;
-    border-radius:12px;
-    position:relative;
+.carousel {
+    width: 180px;
+    height: 140px;
+    overflow: hidden;
+    border-radius: 12px;
+    position: relative;
 }
 
-.carousel img{
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-
-    opacity:0;
-    transition:opacity 0.8s ease-in-out;
+.carousel img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
 }
 
-.carousel img.active{
-    opacity:1;
+.carousel img.active {
+    opacity: 1;
 }
 
-.related-section{
-    padding:60px 0;
+.related-section {
+    padding: 60px 0;
 }
 
-.related-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:20px;
+.related-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
 }
 
-.related-card{
-    padding:20px;
-    background:#f5f5f5;
-    border-radius:10px;
+.related-card {
+    padding: 20px;
+    background: #f5f5f5;
+    border-radius: 10px;
 }
 
-.cta-section{
-    padding:60px 0;
-    text-align:center;
+.cta-section {
+    padding: 60px 0;
+    text-align: center;
 }
 
-.cta-btn{
-    display:inline-block;
-    padding:12px 22px;
-    background:#000;
-    color:#fff;
-    border-radius:8px;
-    margin-top:10px;
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+    .strip-item {
+        width: 110px;
+    }
+    .strip-item img {
+        width: 85px;
+        height: 65px;
+    }
+    .hero-box {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-image img {
+        width: 220px;
+    }
+    .feature-grid,
+    .related-grid {
+        grid-template-columns: 1fr;
+    }
+    .instrument-row,
+    .instrument-row.reverse {
+        flex-direction: column;
+        text-align: center;
+    }
+    .carousel {
+        width: 150px;
+        height: 120px;
+    }
 }
-
-@media(max-width:768px){
-
-.hero-box{
-    flex-direction:column;
-    text-align:center;
-}
-
-.feature-grid,
-.related-grid{
-    grid-template-columns:1fr;
-}
-
-.instrument-row,
-.instrument-row.reverse{
-    flex-direction:column;
-    text-align:center;
-}
-
-.hero-image img{
-    width:220px;
-}
-
-.carousel{
-    width:150px;
-    height:120px;
-}
-
-.carousel img{
-    width:150px;
-    height:120px;
-}
-
-}
-
 </style>
 
+</body>
+</html>
