@@ -131,6 +131,51 @@ document.querySelectorAll(".nav-item.has-dropdown").forEach(item => {
         }
     });
 
+    // ── LEGAL PAGE TOC INTERACTIONS ──────────────────────────
+    const tocLinks = document.querySelectorAll(".legal-toc .toc-link");
+    const legalSections = document.querySelectorAll(".legal-block[id]");
+
+    const updateLegalToc = () => {
+        if (!tocLinks.length || !legalSections.length) return;
+
+        const scrollPosition = window.scrollY + 140;
+        let activeSectionId = legalSections[0]?.id;
+
+        legalSections.forEach(section => {
+            if (section.offsetTop <= scrollPosition) {
+                activeSectionId = section.id;
+            }
+        });
+
+        tocLinks.forEach(link => {
+            const href = link.getAttribute("href");
+            if (href === `#${activeSectionId}`) {
+                link.classList.add("active");
+            } else {
+                link.classList.remove("active");
+            }
+        });
+    };
+
+    tocLinks.forEach(link => {
+        const href = link.getAttribute("href");
+        if (!href || !href.startsWith("#")) return;
+
+        link.addEventListener("click", e => {
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+                target.scrollIntoView({ behavior: "smooth", block: "start" });
+                history.replaceState(null, "", href);
+                tocLinks.forEach(el => el.classList.remove("active"));
+                link.classList.add("active");
+            }
+        });
+    });
+
+    window.addEventListener("scroll", updateLegalToc, { passive: true });
+    updateLegalToc();
+
     // ── SLIDESHOW ─────────────────────────────────────────────
     const slides = document.querySelectorAll(".slide");
     const dots   = document.querySelectorAll(".dot");
