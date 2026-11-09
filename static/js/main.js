@@ -1,18 +1,9 @@
-// ── FOUC FIX — run immediately ────────────────────────────
-document.documentElement.style.visibility = "visible";
-document.documentElement.style.opacity = "1";
+// ── EARLY FLAG (runs immediately, so .reveal elements never flash) ──
+document.documentElement.classList.add("js-enabled");
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    document.documentElement.classList.add("js-enabled");
-
-    // ── PAGE FADE IN ──────────────────────────────────────────
-    document.body.classList.add("page-transition");
-    requestAnimationFrame(() => {
-        document.body.classList.add("page-visible");
-    });
-
-    // ── NAVBAR ELEMENTS ───────────────────────────────────────
+    // ── ELEMENTS ──────────────────────────────────────────────
     const navbar      = document.getElementById("navbar");
     const hamburger   = document.getElementById("hamburgerBtn");
     const navLinks    = document.getElementById("navLinks");
@@ -22,248 +13,203 @@ document.addEventListener("DOMContentLoaded", () => {
     const searchInput = document.getElementById("searchInput");
     const searchClose = document.getElementById("searchClose");
 
-    // ── NAVBAR SCROLL EFFECT ──────────────────────────────────
-    if (navbar) {
-        window.addEventListener("scroll", () => {
-            navbar.classList.toggle("scrolled", window.scrollY > 10);
-        }, { passive: true });
-    }
-
     // ── MOBILE OVERLAY ────────────────────────────────────────
     const overlay = document.createElement("div");
     overlay.className = "nav-overlay";
     document.body.appendChild(overlay);
 
-    // ── CLOSE MENU FUNCTION ───────────────────────────────────
+    // ── MENU OPEN / CLOSE ─────────────────────────────────────
     const closeMenu = () => {
         navLinks?.classList.remove("open");
         overlay.classList.remove("active");
         hamburger?.classList.remove("active");
         hamburger?.setAttribute("aria-expanded", "false");
         document.body.classList.remove("menu-open");
-
-        document.querySelectorAll(".nav-item.open").forEach(item => {
-            item.classList.remove("open");
-        });
+        document.querySelectorAll(".nav-item.open").forEach(item => item.classList.remove("open"));
     };
 
-    // ── HAMBURGER TOGGLE ──────────────────────────────────────
     if (hamburger && navLinks) {
         hamburger.addEventListener("click", () => {
-
             const isOpen = navLinks.classList.toggle("open");
-
             hamburger.classList.toggle("active", isOpen);
             overlay.classList.toggle("active", isOpen);
             document.body.classList.toggle("menu-open", isOpen);
-
-            hamburger.setAttribute("aria-expanded", isOpen);
+            hamburger.setAttribute("aria-expanded", String(isOpen));
         });
     }
 
     overlay.addEventListener("click", closeMenu);
 
     // ── MOBILE DROPDOWNS ──────────────────────────────────────
-document.querySelectorAll(".nav-item.has-dropdown").forEach(item => {
+    document.querySelectorAll(".nav-item.has-dropdown").forEach(item => {
+        const link = item.querySelector(".nav-link");
+        if (!link) return;
 
-    const link = item.querySelector(".nav-link");
+        link.addEventListener("click", e => {
+            if (window.innerWidth > 768) return;
+            e.preventDefault();
 
-    link.addEventListener("click", (e) => {
-
-        if (window.innerWidth <= 768) {
-
-            e.preventDefault(); // stop navigation
-
-            const isOpen = item.classList.contains("open");
-
-            // close others
+            const wasOpen = item.classList.contains("open");
             document.querySelectorAll(".nav-item.has-dropdown.open").forEach(el => {
                 if (el !== item) el.classList.remove("open");
             });
-
-            // toggle this one
-            item.classList.toggle("open", !isOpen);
-        }
-    });
-});
-
-    // ── CLOSE MENU ON LINK CLICK ──────────────────────────────
-    document.querySelectorAll(".dropdown a").forEach(link => {
-        link.addEventListener("click", () => {
-            closeMenu();
+            item.classList.toggle("open", !wasOpen);
         });
     });
 
-    // ── FIX ON RESIZE ─────────────────────────────────────────
-    window.addEventListener("resize", () => {
-        if (window.innerWidth > 768) {
-            closeMenu();
-        }
+    document.querySelectorAll(".dropdown a").forEach(link => {
+        link.addEventListener("click", closeMenu);
     });
 
-    // ── SEARCH ────────────────────────────────────────────────
+    window.addEventListener("resize", () => {
+        if (window.innerWidth > 768) closeMenu();
+    });
+
+    // ── SEARCH (only works if your HTML has these ids + CSS) ──
     if (searchBtn && searchBar && searchInput) {
         searchBtn.addEventListener("click", () => {
             searchBar.classList.add("open");
             setTimeout(() => searchInput.focus(), 200);
         });
     }
-
-    if (searchClose && searchBar) {
-        searchClose.addEventListener("click", () => {
-            searchBar.classList.remove("open");
-        });
-    }
+    searchClose?.addEventListener("click", () => searchBar?.classList.remove("open"));
 
     document.addEventListener("keydown", e => {
         if (e.key === "Escape") {
             searchBar?.classList.remove("open");
+            closeMenu();
         }
     });
 
-    // ── ACTIVE LINK HIGHLIGHT ────────────────────────────────
-    const currentPath = window.location.pathname;
+    // ── ACTIVE LINK HIGHLIGHT (exact path match) ──────────────
+    const normalize = p => (p.length > 1 ? p.replace(/\/+$/, "") : p);
+    const here = normalize(window.location.pathname);
 
-    document.querySelectorAll(".nav-link").forEach(link => {
+    document.querySelectorAll(".nav-link[href], .dropdown a[href]").forEach(link => {
         const href = link.getAttribute("href");
-        if (href && currentPath.includes(href)) {
-            link.closest(".nav-item")?.classList.add("active");
-        }
+        if (!href || href.startsWith("#") || href.startsWith("javascript:")) return;
+
+        let path;
+        try { path = normalize(new URL(href, window.location.href).pathname); }
+        catch { return; }
+
+        if (path === here) link.closest(".nav-item")?.classList.add("active");
     });
 
-    // ── LEGAL PAGE TOC INTERACTIONS ──────────────────────────
-    const tocLinks = document.querySelectorAll(".legal-toc .toc-link");
-    const legalSections = document.querySelectorAll(".legal-block[id]");
+    // ── TABLE OF CONTENTS (legal / policy pages) ──────────────
+    const tocLinks = document.querySelectorAll(".legal-toc a[href^='#'], .toc a[href^='#']");
+    const tocSections = document.querySelectorAll(".legal-block[id], .policy-section[id]");
 
-    const updateLegalToc = () => {
-        if (!tocLinks.length || !legalSections.length) return;
+    const updateToc = () => {
+        if (!tocLinks.length || !tocSections.length) return;
 
-        const scrollPosition = window.scrollY + 140;
-        let activeSectionId = legalSections[0]?.id;
+        const line = 140;
+        let activeId = tocSections[0].id;
 
-        legalSections.forEach(section => {
-            if (section.offsetTop <= scrollPosition) {
-                activeSectionId = section.id;
-            }
+        tocSections.forEach(section => {
+            if (section.getBoundingClientRect().top <= line) activeId = section.id;
         });
 
         tocLinks.forEach(link => {
-            const href = link.getAttribute("href");
-            if (href === `#${activeSectionId}`) {
-                link.classList.add("active");
-            } else {
-                link.classList.remove("active");
-            }
+            link.classList.toggle("active", link.getAttribute("href") === `#${activeId}`);
         });
     };
 
     tocLinks.forEach(link => {
-        const href = link.getAttribute("href");
-        if (!href || !href.startsWith("#")) return;
-
         link.addEventListener("click", e => {
+            const target = document.querySelector(link.getAttribute("href"));
+            if (!target) return;
             e.preventDefault();
-            const target = document.querySelector(href);
-            if (target) {
-                target.scrollIntoView({ behavior: "smooth", block: "start" });
-                history.replaceState(null, "", href);
-                tocLinks.forEach(el => el.classList.remove("active"));
-                link.classList.add("active");
-            }
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+            history.replaceState(null, "", link.getAttribute("href"));
+            tocLinks.forEach(el => el.classList.remove("active"));
+            link.classList.add("active");
         });
     });
 
-    window.addEventListener("scroll", updateLegalToc, { passive: true });
-    updateLegalToc();
+    // ── ONE THROTTLED SCROLL HANDLER ──────────────────────────
+    let ticking = false;
+    const onScroll = () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+            navbar?.classList.toggle("scrolled", window.scrollY > 10);
+            updateToc();
+            ticking = false;
+        });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
 
     // ── SLIDESHOW ─────────────────────────────────────────────
     const slides = document.querySelectorAll(".slide");
     const dots   = document.querySelectorAll(".dot");
 
-    let current = 0;
-    let interval;
+    if (slides.length) {
+        let current = 0;
+        let timer;
 
-    if (slides.length && dots.length) {
-
-        const changeSlide = (n) => {
+        const changeSlide = n => {
             slides[current].classList.remove("active");
-            dots[current].classList.remove("active");
-
+            dots[current]?.classList.remove("active");
             current = (n + slides.length) % slides.length;
-
             slides[current].classList.add("active");
-            dots[current].classList.add("active");
+            dots[current]?.classList.add("active");
         };
 
         const auto = () => {
-            clearInterval(interval);
-            interval = setInterval(() => changeSlide(current + 1), 5000);
+            clearInterval(timer);
+            timer = setInterval(() => changeSlide(current + 1), 5000);
         };
 
         dots.forEach((dot, i) => {
-            dot.addEventListener("click", () => {
-                changeSlide(i);
-                auto();
-            });
+            dot.addEventListener("click", () => { changeSlide(i); auto(); });
         });
 
         document.addEventListener("keydown", e => {
-            if (e.key === "ArrowRight") changeSlide(current + 1);
-            if (e.key === "ArrowLeft") changeSlide(current - 1);
-            auto();
+            if (/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
+            if (e.key === "ArrowRight") { changeSlide(current + 1); auto(); }
+            if (e.key === "ArrowLeft")  { changeSlide(current - 1); auto(); }
+        });
+
+        // don't run the timer while the tab is hidden
+        document.addEventListener("visibilitychange", () => {
+            if (document.hidden) clearInterval(timer); else auto();
         });
 
         auto();
     }
 
-    // ── SCROLL REVEAL ─────────────────────────────────────────
+    // ── SCROLL REVEAL (IntersectionObserver) ──────────────────
     const reveals = document.querySelectorAll(".reveal, .reveal-left, .reveal-right");
 
-    const revealScroll = () => {
-        reveals.forEach(el => {
-            if (el.getBoundingClientRect().top < window.innerHeight - 100) {
-                el.classList.add("active");
-            }
-        });
-    };
+    if ("IntersectionObserver" in window) {
+        const io = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("active");
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { rootMargin: "0px 0px -80px 0px", threshold: 0.05 });
 
-    window.addEventListener("scroll", revealScroll, { passive: true });
-    revealScroll();
-
-    // ── FIXED PAGE TRANSITION (IMPORTANT FIX) ─────────────────
-    document.querySelectorAll("a").forEach(link => {
-
-        const href = link.getAttribute("href");
-
-        if (
-            !href ||
-            href.startsWith("#") ||
-            href.startsWith("mailto:") ||
-            href.startsWith("tel:") ||
-            link.target === "_blank"
-        ) return;
-
-        link.addEventListener("click", e => {
-
-            e.preventDefault();
-
-            document.body.classList.remove("page-visible");
-
-            setTimeout(() => {
-                window.location.href = href;
-            }, 250);
-        });
-    });
+        reveals.forEach(el => io.observe(el));
+    } else {
+        reveals.forEach(el => el.classList.add("active"));
+    }
 
     // ── PAGE LOADER ───────────────────────────────────────────
     const loader = document.getElementById("pageLoader");
 
     if (loader) {
-        window.addEventListener("load", () => {
-            setTimeout(() => {
-                loader.classList.add("hidden");
-            }, 600);
-        });
-    }
+        const hideLoader = () => loader.classList.add("hidden");
 
+        if (document.readyState === "complete") {
+            setTimeout(hideLoader, 200);
+        } else {
+            window.addEventListener("load", () => setTimeout(hideLoader, 200));
+        }
+        // safety net: never block the page longer than 4s
+        setTimeout(hideLoader, 4000);
+    }
 });
